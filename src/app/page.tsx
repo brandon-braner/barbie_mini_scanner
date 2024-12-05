@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Camera from '@/components/Camera';
+import ResultsList from '@/components/ResultsList';
 
 export default function Home() {
   const [scanning, setScanning] = useState(false);
@@ -76,24 +77,7 @@ export default function Home() {
           </div>
         )}
 
-        {result && (
-          <div className="mt-6 bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="bg-pink-500 px-6 py-3">
-              <h2 className="text-xl font-semibold text-white">Scan Results</h2>
-            </div>
-            <div className="p-6">
-              {Object.entries(result).map(([key, value]) => (
-                <div key={key} className="mb-4 last:mb-0">
-                  <h3 className="text-sm font-medium text-gray-500 uppercase">{key}</h3>
-                  <p className="mt-1 text-lg">{
-                    typeof value === 'string' ? value :
-                    JSON.stringify(value, null, 2)
-                  }</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {result && <ResultsList results={result} />}
       </div>
     </main>
   );
