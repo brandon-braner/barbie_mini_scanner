@@ -1,7 +1,8 @@
-import Database from 'better-sqlite3';
 import path from 'path';
 
-const db = new Database(path.join(process.cwd(), 'barbies.db'));
+const filename: string = path.join(process.cwd(), 'barbies.db');
+
+const db = require('better-sqlite3')(filename);
 
 export function queryBarbieByCode(code: string) {
   code = code.toUpperCase();
