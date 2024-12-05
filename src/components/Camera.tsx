@@ -83,7 +83,7 @@ export default function Camera({ onCapture }: { onCapture: (imageData: HTMLCanva
   }
   
   return (
-    <div ref={containerRef} className="w-full max-w-screen-sm mx-auto flex flex-col items-center">
+    <div ref={containerRef} className="w-full  max-w-screen-sm mx-auto flex flex-col items-center">
       <video
         ref={videoRef}
         autoPlay
