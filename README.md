@@ -38,23 +38,37 @@ A web application that uses AI vision to identify different types of Barbie doll
 
 ## Getting Started
 
-1. Clone the repository:
+- Clone the repository:
    ```bash
    git clone https://github.com/yourusername/barbie-scanner.git
    ```
 
-2. Install dependencies:
+- Install dependencies:
    ```bash
    cd barbie-scanner
    npm install
    ```
+- Install Ollama
+   https://ollama.com/
 
-3. Run the development server:
+- Run llama 3.2-vision model
    ```bash
-   npm run dev
+   ollama run llama3.2-vision
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+- Run the development server:
+   ```bash
+   npm run dev:https
+   ```
+
+- Open [https://localhost:3000](https://localhost:3000) in your browser
+
+## Building Docker Image
+
+```bash
+docker build -t barbie-scanner .
+```
+
 
 ## Requirements
 

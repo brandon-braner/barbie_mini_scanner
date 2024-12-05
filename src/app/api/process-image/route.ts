@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import ollama from 'ollama';
+import { Ollama } from 'ollama'
 import * as fs from 'fs';
 import path from 'path';
 
@@ -28,6 +28,9 @@ export async function POST(request: Request) {
     fs.writeFileSync(filepath, buffer);
 
     // Use the saved image file with Ollama
+    // If running in Docker, use the Docker host to access Ollama
+    const ollamaHost = process.env.NODE_ENV === 'production' ? 'host.docker.internal' : 'localhost';
+    const ollama = new Ollama({ host: 'http://' + ollamaHost + ':11434' })
     const res = await ollama.chat({
       model: 'llama3.2-vision',
       messages: [{
